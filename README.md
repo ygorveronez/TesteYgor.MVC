@@ -10,4 +10,4 @@ Para comecar a utilizar o projeto faça o login com o usuário admin
 login: admin@admin.com
 senha: 1234
 
-#Somente o usuário admin pode fazer cadastros de outros usuário e outras transportadoras.
+Somente o usuário admin pode fazer cadastros de outros usuário e outras transportadoras.
