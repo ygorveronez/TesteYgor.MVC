@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<header class="bg1">
+        <div id="header-logo">TesteYgor</div>
+        <div id="header-panel">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div id="logout">
+                    <a href="/Login/Logout">Logout</a>
+                </div>
+                <div id="current-use">
+                    @User.Identity.Name
+                </div>
+            }
+            else
+            { 
+                <div id="user-login">
+                    <a href="/Login/Login">Login</a>
+                </div>
+            }
+        </div>
+
+        <nav>
+            @Html.Partial("MainMenu")
+        </nav>
+
+        <div>
+        </div>
+
+    </header>
+
+
+    @RenderBody()
+
+
+    <footer class="bg1">
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/app-main")
+    @Scripts.Render("~/bundles/mask")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

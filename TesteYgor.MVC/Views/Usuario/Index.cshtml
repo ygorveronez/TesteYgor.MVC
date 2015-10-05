@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TesteYgor.Domain.Models.Usuario>
+
+@{
+    ViewBag.Title = "Usuários";
+}
+
+<div id="stage-title">
+    <h2>Usuários</h2>
+</div>
+
+<div id="stage-tools">
+    <div id="stage-search">
+        @Html.ActionLink("Novo", "Create", null, new { @class = "button" })
+    </div>
+    
+
+    <div id="stage-wait">
+        <img id="wait" src="~/Content/wait.gif" />
+    </div>
+</div>
+
+<div id="stage-body">
+    <div id="page-body">
+        <table id="main-table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Senha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPF)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Senha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPF)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "button" }) |
+                        @Html.ActionLink("Deletar", "Delete", new { id=item.Id }, new { @class = "button" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

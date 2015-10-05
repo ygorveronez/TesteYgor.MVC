@@ -1,0 +1,32 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <div style="margin: 20px;">
+
+        <h2>Error!
+        </h2>
+
+        <p>
+            Controler: @Model.ControllerName
+        </p>
+
+        <p>
+            Action: @Model.ActionName
+        </p>
+        <div style="height: 300px; overflow: auto;">
+            <p>
+                Exception: @Model.Exception
+            </p>
+        </div>
+    </div>
+</body>
+</html>

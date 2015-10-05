@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteYgor.MVC", "TesteYgor.MVC\TesteYgor.MVC.csproj", "{963223B9-8FDB-476A-B17D-41BD639B6CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteYgor.Domain", "TesteYgor.Domain\TesteYgor.Domain.csproj", "{126C3C44-4B7E-4CA7-B0D0-6CD3D51BF05B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{963223B9-8FDB-476A-B17D-41BD639B6CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963223B9-8FDB-476A-B17D-41BD639B6CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963223B9-8FDB-476A-B17D-41BD639B6CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963223B9-8FDB-476A-B17D-41BD639B6CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126C3C44-4B7E-4CA7-B0D0-6CD3D51BF05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126C3C44-4B7E-4CA7-B0D0-6CD3D51BF05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126C3C44-4B7E-4CA7-B0D0-6CD3D51BF05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126C3C44-4B7E-4CA7-B0D0-6CD3D51BF05B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

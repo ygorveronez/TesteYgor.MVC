@@ -1,0 +1,38 @@
+﻿<ul id="ul-menu">
+    <li>
+        <a href="#">Home</a>
+        <ul>
+            <li>
+                <a href="/Home/Index">Index</a>
+            </li>
+            <li>
+                <a href="/Home/About">Sobre</a>
+            </li>
+        </ul>
+    </li>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li>
+            <a href="#">Transportadoras</a>
+            <ul>
+                <li>
+                    <a href="/Transportadora/Index">Listar</a>
+                </li>
+                <li>
+                    <a href="/Transportadora/Classificar">Classificar</a>
+                </li>
+            </ul>
+        </li>
+        if (User.IsInRole("Admin"))
+        {
+            <li>
+                <a href="#">Usuário</a>
+                <ul>
+                    <li>
+                        <a href="/Usuario/Index">Listar</a>
+                    </li>
+                </ul>
+            </li>
+        }
+    }
+</ul>

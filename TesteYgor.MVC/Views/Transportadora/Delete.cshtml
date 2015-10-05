@@ -1,0 +1,50 @@
+﻿@model TesteYgor.Domain.Models.Transportadora
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="stage-title">
+    <h2>Deletar Transportadora</h2>
+</div>
+
+<div id="stage-tools">
+    <div id="stage-search">
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "button" })
+    </div>
+    <div style="margin-left: 10px;padding-left: 69px;">Deseja deletar esta trasnportadora?</div>
+</div>
+
+<div id="stage-body">
+    <fieldset>
+        <legend>Transportadora</legend>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.NomeTransportadora)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NomeTransportadora)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.CNPJ)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CNPJ)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Endereco)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Endereco)
+        </div>
+        @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <p>
+                @Html.HiddenFor(model => model.Id)
+                <input type="submit" value="Deletar" />
+            </p>
+        }
+    </fieldset>
+</div>

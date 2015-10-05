@@ -1,0 +1,43 @@
+﻿@model TesteYgor.Domain.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div id="stage-title">
+    <h2>Login</h2>
+</div>
+
+<div id="stage-tools">
+    <div style="margin-left: 10px;">Identifique-se</div>
+</div>
+
+<div id="stage-body">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Login</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+            
+             <input type="submit" value="Entrar" style="margin-top: 20px;" />
+        </fieldset>
+       
+    }
+</div>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TesteYgor.Domain.Models.Transportadora>
+
+@{
+    ViewBag.Title = "Classificar";
+}
+
+@Styles.Render("~/Content/rater")
+
+<div id="stage-title">
+    <h2>Classificar Transportadoras</h2>
+</div>
+
+<div id="stage-tools">
+    <div id="stage-wait">
+        <img id="wait" src="~/Content/wait.gif" />
+    </div>
+</div>
+
+<div id="stage-body">
+    <div id="page-body">
+        <table id="main-table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeTransportadora)
+                </th>                
+                <th>Classificação</th>
+            </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTransportadora)
+                </td>                
+                <td>
+                    @if (item.Avaliacoes.Any(a => a.Usuario_Id == (int)ViewBag.UserId))
+                    {
+                        <div class="stat" title="Você avaliou em: @item.Avaliacoes.First(f => f.Usuario_Id == (int)ViewBag.UserId).Avaliacao">
+		                    <div class="statVal">
+			                    <span class="ui-rater">
+				                    <span class="ui-rater-starsOff" style="width:90px;cursor:default">
+                                        <span class="ui-rater-starsOn" style="width:@(18 * ((float)item.Avaliacoes.Sum(s => s.Avaliacao) / (float)(item.Avaliacoes.Count() == 0 ? 1 : item.Avaliacoes.Count())))px;cursor:default"></span>
+				                    </span>
+				                    <span class="ui-rater-rating">@(((float)item.Avaliacoes.Sum(s => s.Avaliacao) / (float)(item.Avaliacoes.Count() == 0 ? 1 : item.Avaliacoes.Count())).ToString("N"))</span>&#160;(<span class="ui-rater-rateCount">@item.Avaliacoes.Count()</span>)
+			                    </span>
+                                <input type="hidden" class="ui-rater-transid" value="@item.Id" />
+                            </div>
+                        </div>                            
+                    }
+                    else
+                    {
+                        <div class="stat testRater" id="rater_@item.Id">
+		                    <div class="statVal">
+			                    <span class="ui-rater">
+				                    <span class="ui-rater-starsOff" style="width:90px;">
+                                        <span class="ui-rater-starsOn" style="width:@(18 * ((float)item.Avaliacoes.Sum(s => s.Avaliacao) / (float)(item.Avaliacoes.Count() == 0 ? 1 : item.Avaliacoes.Count())))px"></span>
+				                    </span>
+				                    <span class="ui-rater-rating">@(((float)item.Avaliacoes.Sum(s => s.Avaliacao) / (float)(item.Avaliacoes.Count() == 0 ? 1 : item.Avaliacoes.Count())).ToString("N"))</span>&#160;(<span class="ui-rater-rateCount">@item.Avaliacoes.Count()</span>)
+			                    </span>
+                                <input type="hidden" class="ui-rater-transid" value="@item.Id" />
+                            </div>
+                        </div>                            
+                    }
+                </td>
+            </tr>
+        }
+
+        </table>
+
+
+        
+     </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryrater");
+    <script type="text/javascript">
+        $(function () {
+
+            $('.testRater').each(function (index, Element) {
+                $(Element).rater({ postHref: '@Url.Action("ClassificarTrasnportadora")' });
+            });
+
+            //$('.testRater').rater({ postHref: 'http://jvance.com/TestRater.aspx' });
+        });
+    </script>
+}

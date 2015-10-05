@@ -1,0 +1,56 @@
+﻿@model TesteYgor.Domain.Models.Transportadora
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div id="stage-title">
+    <h2>Editar Transportadora</h2>
+</div>
+
+<div id="stage-tools">
+    <div id="stage-search">
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "button" })
+    </div>
+</div>
+
+<div id="stage-body">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Transportadora</legend>
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NomeTransportadora)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.NomeTransportadora)
+                @Html.ValidationMessageFor(model => model.NomeTransportadora)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CNPJ)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CNPJ, new { @class = "cnpj" })
+                @Html.ValidationMessageFor(model => model.CNPJ)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Endereco)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Endereco)
+                @Html.ValidationMessageFor(model => model.Endereco)
+            </div>
+
+            <p>
+                <input type="submit" value="Salvar" />
+            </p>
+        </fieldset>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model TesteYgor.Domain.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="stage-title">
+    <h2>Deletar Usuário</h2>
+</div>
+
+<div id="stage-tools">
+    <div id="stage-search">
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "button" })
+    </div>
+    <div style="margin-left: 10px;padding-left: 69px;">Deseja deletar esse usuário?</div>
+</div>
+
+<div id="stage-body">
+    <fieldset>
+        <legend>Usuario</legend>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nome)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nome)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Email)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Senha)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Senha)
+        </div>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.CPF)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CPF)
+        </div>
+        @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <p>
+                @Html.HiddenFor(model => model.Id)
+                <input type="submit" value="Deletar" />
+            </p>
+        }
+    </fieldset>
+    
+</div>

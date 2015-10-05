@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TesteYgor.Domain.Models.Transportadora>
+
+@{
+    ViewBag.Title = "Transportadoras";
+}
+
+<div id="stage-title">
+    <h2>Transportadoras</h2>
+</div>
+
+<div id="stage-tools">
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div id="stage-search">
+            @Html.ActionLink("Novo", "Create", null, new { @class = "button" })
+        </div>
+    }
+
+    <div id="stage-wait">
+        <img id="wait" src="~/Content/wait.gif" />
+    </div>
+</div>
+
+<div id="stage-body">
+    <div id="page-body">
+        <table id="main-table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeTransportadora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CNPJ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th></th>                    
+                }
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTransportadora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CNPJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "button" }) |
+                        @Html.ActionLink("Deletar", "Delete", new { id=item.Id }, new { @class = "button" })
+                    </td>
+                }
+            </tr>
+        }
+
+        </table>
+     </div>
+</div>
+
